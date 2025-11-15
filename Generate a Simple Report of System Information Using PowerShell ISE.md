@@ -76,6 +76,11 @@ By completing this project, a learner practices how to:
    - `.ps1` is the standard file extension for PowerShell scripts.  
    - This is similar to how `.sh` is commonly used for shell scripts in Linux.
 
+
+
+<img width="1058" height="787" alt="image" src="https://github.com/user-attachments/assets/de9111d8-3c90-44b7-8c3b-9840c3bbae04" />
+
+
 ---
 
 ## Step 2 – Create Variables for System Information
@@ -100,6 +105,9 @@ Each variable line is broken down and then described in terms of what it does as
 ```powershell
 $computerName = $env:COMPUTERNAME
 ```
+
+<img width="707" height="40" alt="image" src="https://github.com/user-attachments/assets/1479a1f0-9f99-432c-a424-dec5ea9d4db2" />
+
 
 #### Breaking Down Each Part
 
@@ -136,6 +144,10 @@ Later, this stored value is used when writing the report.
 ```powershell
 $os = Get-WmiObject -Class Win32_OperatingSystem
 ```
+
+<img width="706" height="17" alt="image" src="https://github.com/user-attachments/assets/90d09bca-d054-482e-b8b4-7b141b4c954d" />
+
+
 
 #### Breaking Down Each Part
 
@@ -179,6 +191,9 @@ That object is later written directly into the report text file.
 $freeSpace = (Get-PSDrive C).Free / 1GB
 ```
 
+<img width="720" height="15" alt="image" src="https://github.com/user-attachments/assets/c0843150-9ff5-449e-98a3-fe530f786431" />
+
+
 #### Breaking Down Each Part
 
 - **`$freeSpace`**  
@@ -216,6 +231,9 @@ The result (for example, `35.20`) is stored in the `$freeSpace` variable.
 ```powershell
 $totalSpace = ((Get-PSDrive C).Used + (Get-PSDrive C).Free) / 1GB
 ```
+
+<img width="1176" height="22" alt="image" src="https://github.com/user-attachments/assets/298d90ed-fb4f-46e6-8e0c-85ebabedb60b" />
+
 
 #### Breaking Down Each Part
 
@@ -269,6 +287,10 @@ Linux shells commonly use `echo` to print text to the terminal.
 Write-Output "Computer Name: $computerName" | Out-File $reportPath
 ```
 
+<img width="1145" height="21" alt="image" src="https://github.com/user-attachments/assets/e3595274-d61a-48a6-9ebc-188b13e17a8d" />
+
+
+
 #### Breaking Down Each Part
 
 - **`Write-Output`**  
@@ -305,6 +327,9 @@ This command prints a line that shows the computer name and then creates (or ove
 Write-Output $os | Out-File $reportPath -Append
 ```
 
+<img width="1127" height="20" alt="image" src="https://github.com/user-attachments/assets/890e63ca-eda3-4125-b68a-8f5bd586a319" />
+
+
 #### Breaking Down Each Part
 
 - **`Write-Output $os`**  
@@ -334,6 +359,9 @@ This command prints all the operating system details and adds them below the com
 ```powershell
 Write-Output ("Free Space(GB):{0:N2}" -f $freeSpace) | Out-File $reportPath -Append
 ```
+
+<img width="1352" height="26" alt="image" src="https://github.com/user-attachments/assets/58cbb442-6690-44a2-bcbe-178184ba13b8" />
+
 
 This line uses the PowerShell **format operator** `-f`.
 
@@ -390,6 +418,9 @@ and then adds that line to the end of the report file.
 Write-Output ("Total Space(GB):{0:N2}" -f $totalSpace) | Out-File $reportPath -Append
 ```
 
+<img width="1527" height="36" alt="image" src="https://github.com/user-attachments/assets/97e72cd4-aa09-4469-8322-a28fd17f035b" />
+
+
 #### Breaking Down Each Part
 
 - **`"Total Space(GB):{0:N2}"`**  
@@ -418,6 +449,10 @@ This command creates a line showing the total size of the `C:` drive in gigabyte
 ```powershell
 $reportPath = "$env:USERPROFILE\Desktop\Simple_System_Report.txt"
 ```
+
+<img width="1241" height="37" alt="image" src="https://github.com/user-attachments/assets/f0ab6058-41a6-4f78-b8b6-1a09265f3440" />
+
+
 
 #### Breaking Down Each Part
 
@@ -465,6 +500,9 @@ This builds the full system report in a readable order.
 Write-Output "The system report will be saved to: $reportPath"
 ```
 
+<img width="1522" height="60" alt="image" src="https://github.com/user-attachments/assets/9f8ccca1-f3ab-4de2-9523-9ca7163470ba" />
+
+
 #### Breaking Down Each Part
 
 - **`Write-Output`**  
@@ -505,4 +543,53 @@ Write-Output ("Total Space(GB):{0:N2}" -f $totalSpace) | Out-File $reportPath -A
 Write-Output "The system report will be saved to: $reportPath"
 ```
 
-This script, plus the explanations above, forms a complete, beginner-friendly GitHub project that demonstrates how to generate a simple system information report using PowerShell ISE.
+****What the Final Report Looks Like****
+
+After each command runs and all system information is collected, the script creates a text file named Simple_System_Report.txt on the Desktop.
+This file shows a clear summary of the computer’s basic information.
+
+This report includes:
+
+The computer’s name
+
+System directory
+
+Organization field (if configured)
+
+Windows build number
+
+Registered user
+
+Serial number
+
+Windows version
+
+Free space on drive C:
+
+Total space on drive C:
+
+
+<img width="1142" height="818" alt="image" src="https://github.com/user-attachments/assets/6522508d-02db-42d8-9a09-fa5d9fcb6b62" />
+
+
+
+---
+
+<img width="1228" height="835" alt="image" src="https://github.com/user-attachments/assets/f2de5d1e-dae1-43c7-859c-f42f7b157216" />
+
+
+---
+
+
+
+<img width="1250" height="853" alt="image" src="https://github.com/user-attachments/assets/44d25f02-d0e8-4c18-b0c8-8ae94f78c06d" />
+
+---
+
+
+<img width="1285" height="852" alt="image" src="https://github.com/user-attachments/assets/754946e3-60af-4b7b-92af-bb2b7dcaa826" />
+
+
+
+
+
